@@ -1,0 +1,54 @@
+/* 3D Letter Transition Animation Styles */
+.perspective-500 {
+  perspective: 500px;
+}
+
+.word,
+.char {
+  display: inline-block;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Animation for section titles */
+.section-title {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Staggered animation for cards */
+.stagger-card {
+  opacity: 0;
+  transform: translate3d(0, 50px, 0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.stagger-card.animate {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* 3D hover effect for buttons */
+.btn-3d {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.btn-3d:hover {
+  transform: translate3d(0, -5px, 10px);
+}
+
+/* Parallax effect for background elements */
+.parallax {
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Split text animation for testimonials */
+.split-text-container {
+  overflow: hidden;
+}
+
+.split-text {
+  display: inline-block;
+  transform-style: preserve-3d;
+}
