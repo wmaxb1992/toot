@@ -13,16 +13,22 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import DataSplitting from "@/components/animations/data-splitting"
+import { usePathname } from "next/navigation"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
+  const pathname = usePathname()
+  const isHomePage = pathname === "/"
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
     }
+
+    // Initialize scroll state
+    handleScroll()
 
     window.addEventListener("scroll", handleScroll)
 
@@ -40,7 +46,9 @@ export default function Navbar() {
         "fixed top-0 w-full z-50 transition-all duration-700",
         isScrolled 
           ? "bg-white/90 backdrop-blur-sm shadow-sm animate-in fade-in duration-1000" 
-          : "bg-transparent"
+          : isHomePage 
+            ? "bg-transparent"
+            : "bg-white shadow-sm"
       )}
     >
       <div className="container-custom flex items-center justify-between h-20">
@@ -55,10 +63,10 @@ export default function Navbar() {
             height={94}
             className={cn(
               "h-8 md:h-10 w-auto transition-all duration-700",
-              isScrolled ? "filter-none animate-in fade-in duration-1000" : "filter brightness-0 invert"
+              isScrolled || !isHomePage ? "filter-none" : "brightness-0 invert"
             )}
             style={{
-              filter: isScrolled ? 'none' : 'brightness(0) invert(1)'
+              filter: isScrolled || !isHomePage ? 'none' : 'brightness(0) invert(1)'
             }}
             priority
             quality={100}
@@ -73,7 +81,7 @@ export default function Navbar() {
                 href="/about"
                 className={cn(
                   "text-sm uppercase tracking-wider transform-gpu transition-all duration-700 hover:translate-y-[-2px] font-['PT_Sans']",
-                  isScrolled 
+                  isScrolled || !isHomePage
                     ? "text-charcoal hover:text-stone animate-in fade-in duration-1000" 
                     : "text-white hover:text-white/80"
                 )}
@@ -85,7 +93,7 @@ export default function Navbar() {
                 <DropdownMenuTrigger 
                   className={cn(
                     "text-sm uppercase tracking-wider transform-gpu transition-all duration-700 hover:translate-y-[-2px] flex items-center gap-1 font-['PT_Sans']",
-                    isScrolled 
+                    isScrolled || !isHomePage
                       ? "text-charcoal hover:text-stone animate-in fade-in duration-1000" 
                       : "text-white hover:text-white/80"
                   )}
@@ -109,7 +117,7 @@ export default function Navbar() {
                 href="/schedule"
                 className={cn(
                   "text-sm uppercase tracking-wider transform-gpu transition-all duration-700 hover:translate-y-[-2px] font-['PT_Sans']",
-                  isScrolled 
+                  isScrolled || !isHomePage
                     ? "text-charcoal hover:text-stone animate-in fade-in duration-1000" 
                     : "text-white hover:text-white/80"
                 )}
@@ -121,7 +129,7 @@ export default function Navbar() {
                 href="/contact"
                 className={cn(
                   "text-sm uppercase tracking-wider transform-gpu transition-all duration-700 hover:translate-y-[-2px] font-['PT_Sans']",
-                  isScrolled 
+                  isScrolled || !isHomePage
                     ? "text-charcoal hover:text-stone animate-in fade-in duration-1000" 
                     : "text-white hover:text-white/80"
                 )}
@@ -133,7 +141,7 @@ export default function Navbar() {
                 <Button
                   variant="outline"
                   className={cn(
-                    "rounded-none btn-3d transition-all duration-700 font-['PT_Sans']",
+                    "rounded-full btn-3d transition-all duration-700 font-['PT_Sans']",
                     "border-charcoal bg-charcoal text-white hover:bg-charcoal/90",
                     "animate-in fade-in slide-in-from-right-4 duration-1000"
                   )}
@@ -150,7 +158,7 @@ export default function Navbar() {
         <button 
           className={cn(
             "md:hidden transition-all duration-700",
-            isScrolled 
+            isScrolled || !isHomePage
               ? "text-charcoal animate-in fade-in duration-1000" 
               : "text-white"
           )} 
@@ -209,7 +217,7 @@ export default function Navbar() {
             </Link>
             <Button
               variant="outline"
-              className="rounded-none border-charcoal bg-charcoal text-white hover:bg-charcoal/90 w-full btn-3d"
+              className="rounded-full border-charcoal bg-charcoal text-white hover:bg-charcoal/90 w-full btn-3d"
               onClick={() => setIsOpen(false)}
             >
               Book Now

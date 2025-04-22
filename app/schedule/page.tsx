@@ -255,15 +255,14 @@ export default function SchedulePage() {
                     <Button
                       key={index}
                       variant={isSameDay(date, selectedDate || new Date()) ? "default" : "outline"}
-                      className={`flex flex-col rounded-none transform-gpu transition-all duration-300 ${
+                      className={`flex flex-col items-center justify-center rounded-full w-12 h-12 transform-gpu transition-all duration-300 ${
                         isSameDay(date, selectedDate || new Date())
                           ? "bg-charcoal text-white"
                           : "bg-white hover:bg-charcoal hover:text-white"
                       }`}
                       onClick={() => setSelectedDate(date)}
                     >
-                      <span className="text-xs">{format(date, "EEE")}</span>
-                      <span className="text-lg font-cormorant">{format(date, "d")}</span>
+                      <span className="text-xs">{format(date, "EEE d")}</span>
                     </Button>
                   ))}
                 </div>

@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import DataSplitting from "@/components/animations/data-splitting"
 import IntersectionObserver from "@/components/animations/intersection-observer"
 import { throttle } from "@/lib/utils"
+import Image from "next/image"
 
 export default function Footer() {
   useEffect(() => {
@@ -42,11 +43,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Studio Info */}
           <IntersectionObserver className="stagger-card">
-            <h3 className="text-xl font-specialGothic uppercase tracking-wider mb-4">
-              <DataSplitting type="chars" delay={0.1} stagger={0.03}>
-                studio seven
-              </DataSplitting>
-            </h3>
+            <div className="mb-6">
+              <Image
+                src="/images/studio-seven-logo.png"
+                alt="Studio Seven"
+                width={500}
+                height={94}
+                className="h-8 w-auto"
+                quality={100}
+              />
+            </div>
             <div className="overflow-hidden">
               <DataSplitting type="words" delay={0.3} stagger={0.02} as="p" className="text-sm text-charcoal/80 mb-6">
                 A modern Pilates studio dedicated to mindful movement, strength building, and holistic wellness in a
@@ -69,7 +75,7 @@ export default function Footer() {
                 <span className="sr-only">Facebook</span>
               </Link>
               <Link
-                href="mailto:info@studioseven.com"
+                href="mailto:info@studiosevenboutique.com"
                 className="hover:text-charcoal transition-colors transform-gpu transition-all duration-300 hover:scale-110"
               >
                 <Mail size={18} />
@@ -79,7 +85,7 @@ export default function Footer() {
           </IntersectionObserver>
 
           {/* Quick Links */}
-          <IntersectionObserver className="stagger-card" delay={0.2}>
+          <IntersectionObserver className="stagger-card">
             <h3 className="text-lg font-medium mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -126,39 +132,41 @@ export default function Footer() {
           </IntersectionObserver>
 
           {/* Contact Info */}
-          <IntersectionObserver className="stagger-card" delay={0.3}>
+          <IntersectionObserver className="stagger-card">
             <h3 className="text-lg font-medium mb-4">Contact Us</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start transform-gpu transition-all duration-300 hover:translate-x-1">
                 <MapPin size={18} className="mr-2 text-charcoal/80 shrink-0 mt-0.5" />
                 <span className="text-charcoal/80">
-                  123 Movement Lane
+                  320 Richmond St
                   <br />
-                  San Francisco, CA 94110
+                  Amherstburg, ON N9V 1H4
                 </span>
               </li>
               <li className="flex items-center transform-gpu transition-all duration-300 hover:translate-x-1">
                 <Phone size={18} className="mr-2 text-charcoal/80" />
-                <Link href="tel:+14155551234" className="text-charcoal/80 hover:text-charcoal transition-colors">
-                  (415) 555-1234
+                <Link href="tel:+15195514767" className="text-charcoal/80 hover:text-charcoal transition-colors">
+                  (519) 551-4767
                 </Link>
               </li>
               <li className="flex items-center transform-gpu transition-all duration-300 hover:translate-x-1">
                 <Mail size={18} className="mr-2 text-charcoal/80" />
                 <Link
-                  href="mailto:info@studioseven.com"
+                  href="mailto:info@studiosevenboutique.com"
                   className="text-charcoal/80 hover:text-charcoal transition-colors"
                 >
-                  info@studioseven.com
+                  info@studiosevenboutique.com
                 </Link>
               </li>
             </ul>
           </IntersectionObserver>
 
           {/* Newsletter */}
-          <IntersectionObserver className="stagger-card" delay={0.4}>
-            <h3 className="text-lg font-medium mb-4">
-              <span className="font-dots">Stay Connected</span>
+          <IntersectionObserver className="stagger-card">
+            <h3 className="text-lg font-bold mb-4">
+              <DataSplitting type="words" delay={0.2} stagger={0.1}>
+                Stay Connected
+              </DataSplitting>
             </h3>
             <p className="text-sm text-charcoal/80 mb-4">
               Subscribe to our newsletter for class updates, wellness tips, and special offers.
@@ -169,15 +177,15 @@ export default function Footer() {
                 placeholder="Your email address"
                 className="bg-white border-sand focus-visible:ring-charcoal transform-gpu transition-all duration-300 focus:scale-[1.01]"
               />
-              <Button type="submit" className="w-full bg-charcoal text-white hover:bg-charcoal/90 rounded-none btn-3d">
+              <Button type="submit" className="w-full bg-charcoal text-white hover:bg-charcoal/90 rounded-full btn-3d">
                 Subscribe
               </Button>
             </form>
           </IntersectionObserver>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-sand/50 text-center text-sm text-charcoal/70">
-          <p>© {new Date().getFullYear()} Studio Seven. All rights reserved.</p>
+        <div className="mt-8 pt-4 border-t border-sand/50 text-center text-xs text-charcoal/70">
+          <p>© 2025 Studio Seven. All rights reserved.</p>
         </div>
       </div>
     </footer>

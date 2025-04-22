@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e3f4f8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d3e4e8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgGradient)"/>
+  
+  <!-- Reformer Machine -->
+  <rect x="200" y="300" width="400" height="20" fill="#d4d4d4" rx="2"/>
+  <rect x="200" y="320" width="20" height="100" fill="#b4b4b4"/>
+  <rect x="580" y="320" width="20" height="100" fill="#b4b4b4"/>
+  
+  <!-- Person in Sculpting Pose -->
+  <circle cx="400" cy="250" r="30" fill="#f5f5f5"/>
+  <path d="M400 280 L400 380" stroke="#f5f5f5" stroke-width="8"/>
+  <path d="M400 320 L350 370" stroke="#f5f5f5" stroke-width="8"/>
+  <path d="M400 320 L450 370" stroke="#f5f5f5" stroke-width="8"/>
+  <path d="M400 380 L370 450" stroke="#f5f5f5" stroke-width="8"/>
+  <path d="M400 380 L430 450" stroke="#f5f5f5" stroke-width="8"/>
+  
+  <!-- Muscle Definition Lines -->
+  <path d="M380 300 L420 300" stroke="#f5f5f5" stroke-width="4" stroke-dasharray="5,5"/>
+  <path d="M370 320 L430 320" stroke="#f5f5f5" stroke-width="4" stroke-dasharray="5,5"/>
+  <path d="M360 340 L440 340" stroke="#f5f5f5" stroke-width="4" stroke-dasharray="5,5"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="150" cy="150" r="50" fill="#d3e4e8" opacity="0.5"/>
+  <circle cx="650" cy="450" r="50" fill="#d3e4e8" opacity="0.5"/>
+  
+  <!-- Text -->
+  <text x="400" y="550" font-family="Arial" font-size="24" text-anchor="middle" fill="#666">
+    Sculpt & Tone
+  </text>
+</svg> 

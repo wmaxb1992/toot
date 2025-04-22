@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
@@ -11,67 +11,44 @@ import { throttle } from "@/lib/utils"
 
 const classes = [
   {
-    id: "mat-pilates",
-    title: "Mat Pilates",
-    description:
-      "Foundation class focusing on core strength, flexibility, and proper alignment using your body weight as resistance.",
-    longDescription:
-      "Our Mat Pilates classes focus on the fundamental principles of the Pilates method. Using your body weight as resistance, you'll strengthen your core, improve posture, and increase flexibility. These classes are perfect for beginners and experienced practitioners alike, as our instructors provide modifications for all levels.",
-    duration: "55 min",
-    level: "All Levels",
-    imageQuery: "watercolor painting of people doing mat pilates exercises in a bright studio",
+    id: "power-flow",
+    title: "POWER FLOW",
+    description: "A thoughtfully designed reformer Pilates class that brings together gentle strength and mindful movement. This full-body experience encourages you to move with intention, lengthening, strengthening, with a focus on proper alignment. The perfect introduction to Pilates.",
+    duration: "45 min",
+    level: "Level 1",
+    imageSrc: "/images/powerflow.png",
   },
   {
-    id: "reformer-basics",
-    title: "Reformer Basics",
-    description: "Introduction to the Pilates reformer machine, focusing on proper form and fundamental movements.",
-    longDescription:
-      "Reformer Basics introduces you to the versatile Pilates reformer machine. This class focuses on proper form and fundamental movements, making it ideal for beginners or those looking to refine their technique. The reformer's spring resistance system provides support while challenging your strength and control.",
-    duration: "55 min",
-    level: "Beginner",
-    imageQuery: "watercolor painting of person using pilates reformer machine, beginner level, soft colors",
+    id: "sculpt-and-tone",
+    title: "SCULPT AND TONE",
+    description: "A strength-focused Pilates class designed to tone, tighten, and strengthen the body through mindful, controlled movement. This full-body session blends dynamic sequences with targeted resistance work to help build muscle endurance, improve core stability, and enhance overall definition.",
+    duration: "45 min",
+    level: "Level 2",
+    imageSrc: "/images/sculptandtone.png",
   },
   {
-    id: "advanced-reformer",
-    title: "Advanced Reformer",
-    description: "Challenging class for experienced practitioners, incorporating complex movements and flow sequences.",
-    longDescription:
-      "Our Advanced Reformer class is designed for experienced practitioners looking for a challenge. This fast-paced class incorporates complex movements, dynamic transitions, and flowing sequences that will test your strength, control, and endurance. Prior reformer experience is recommended.",
-    duration: "55 min",
-    level: "Advanced",
-    imageQuery: "watercolor painting of advanced pilates reformer exercises, dynamic flowing movements",
+    id: "the-burn",
+    title: "THE BURN",
+    description: "This class lives up to its name, a high-intensity reformer Pilates class designed to ignite your muscles and elevate your heart rate. With the jump board adding a cardio boost, this class blends low-impact bursts with powerful, muscle-toning sequences for the ultimate full-body challenge. Prepare to sweat, sculpt, and feel the burn from start to finish.",
+    duration: "45 min",
+    level: "Level 3",
+    imageSrc: "/images/sweaty.png",
   },
   {
-    id: "pilates-fusion",
-    title: "Pilates Fusion",
-    description:
-      "Blend of traditional Pilates with elements of yoga and functional training for a comprehensive workout.",
-    longDescription:
-      "Pilates Fusion blends traditional Pilates principles with elements of yoga and functional training. This dynamic class offers a comprehensive workout that improves strength, flexibility, and mind-body connection. The varied exercises keep your body guessing and your mind engaged.",
+    id: "private-session",
+    title: "1:1 PRIVATE REFORMER SESSION",
+    description: "A Pilates experience designed entirely for you. With gentle guidance and focused support, you'll move through a session tailored to your unique goals. It's your time to reconnect with your body, deepen your practice, and feel truly supported every step of the way.",
     duration: "60 min",
-    level: "Intermediate",
-    imageQuery: "watercolor painting of pilates fusion class combining pilates and yoga elements",
-  },
-  {
-    id: "prenatal-pilates",
-    title: "Prenatal Pilates",
-    description:
-      "Specially designed for expectant mothers, focusing on pelvic floor strength, posture, and gentle movement.",
-    longDescription:
-      "Our Prenatal Pilates classes are specially designed for expectant mothers in all trimesters. These gentle yet effective sessions focus on pelvic floor strength, proper posture, and safe movement patterns that prepare the body for birth and recovery. Our certified prenatal instructors ensure all exercises are appropriate for pregnancy.",
-    duration: "50 min",
     level: "All Levels",
-    imageQuery: "watercolor painting of prenatal pilates class with pregnant women in comfortable studio, gentle tones",
+    imageSrc: "/images/placeholder-4.svg",
   },
   {
-    id: "pilates-for-athletes",
-    title: "Pilates for Athletes",
-    description: "Targeted conditioning to enhance athletic performance, prevent injuries, and improve recovery.",
-    longDescription:
-      "Pilates for Athletes offers targeted conditioning that complements sports training and enhances overall athletic performance. This class focuses on core stability, balanced muscle development, and proper movement patterns to prevent injuries and improve recovery. Ideal for athletes of all types looking to elevate their game.",
+    id: "duo-private-session",
+    title: "DUO PRIVATE REFORMER SESSION",
+    description: "A personalised Pilates experience for two, perfect for friends. With individualised guidance each session is thoughtfully tailored to meet both of your needs. You'll enjoy a balanced, full-body workout that focuses on building strength, improving flexibility, and deepening your connection to movement, together.",
     duration: "60 min",
-    level: "Intermediate to Advanced",
-    imageQuery: "watercolor painting of athletic men and women doing pilates exercises for sports conditioning",
+    level: "All Levels",
+    imageSrc: "/images/placeholder-5.svg",
   },
 ]
 
@@ -118,10 +95,9 @@ export default function ClassesPage() {
                 delay={0.5}
                 stagger={0.03}
                 as="p"
-                className="text-charcoal/80 max-w-2xl mx-auto"
+                className="text-charcoal/80 max-w-2xl mx-auto text-sm"
               >
-                Discover our range of specialized Pilates classes designed to meet you where you are in your movement
-                journey and help you progress with confidence.
+                Discover our specialized Pilates classes, designed to support your movement journey.
               </DataSplitting>
             </div>
           </div>
@@ -135,47 +111,45 @@ export default function ClassesPage() {
                 rootMargin="0px 0px -50px 0px"
                 triggerOnce={true}
               >
-                <Card className="border-none shadow-sm overflow-hidden transform-gpu transition-all duration-500">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="relative h-[300px] md:h-auto overflow-hidden">
-                      <div className="w-full h-full transform-gpu transition-transform duration-700 hover:scale-[1.05]">
-                        <Image
-                          src={`/abstract-geometric-shapes.png?height=600&width=800&query=${encodeURIComponent(
-                            cls.imageQuery,
-                          )}`}
-                          alt={`${cls.title} - Watercolor illustration`}
-                          fill
-                          className="object-cover"
-                          priority={index < 2}
-                        />
+                <div className="p-8">
+                  <Card 
+                    className="overflow-hidden transition-all duration-500 rounded-[62px]"
+                  >
+                    <div className="grid md:grid-cols-2 gap-6 h-full">
+                      <div className="relative h-[240px] md:h-auto overflow-hidden">
+                        <div className="w-full h-full transform-gpu transition-transform duration-700 hover:scale-[1.05] p-6">
+                          <Image
+                            src={cls.imageSrc}
+                            alt={`${cls.title} - Vector illustration`}
+                            fill
+                            className={`object-contain ${cls.id === 'the-burn' ? 'mix-blend-multiply' : ''}`}
+                            priority={index < 2}
+                          />
+                        </div>
+                      </div>
+                      <div className="flex flex-col p-6">
+                        <CardHeader className="px-0 pt-0">
+                          <CardTitle className="text-lg text-sm">{cls.title}</CardTitle>
+                          <CardDescription className="flex justify-between text-xs">
+                            <span>Duration: {cls.duration}</span>
+                            <span>Level: {cls.level}</span>
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent className="px-0 flex-grow">
+                          <p className="text-charcoal/80 mb-4 text-xs">{cls.description}</p>
+                        </CardContent>
+                        <CardFooter className="px-0 pt-4 flex justify-between">
+                          <Button
+                            asChild
+                            className="bg-charcoal text-white hover:bg-charcoal/90 rounded-full btn-3d w-full max-w-[90%]"
+                          >
+                            <Link href={`/classes/${cls.id}`}>Learn More</Link>
+                          </Button>
+                        </CardFooter>
                       </div>
                     </div>
-                    <div className="flex flex-col p-6">
-                      <CardHeader className="px-0 pt-0">
-                        <CardTitle className="text-2xl font-medium">{cls.title}</CardTitle>
-                        <CardDescription className="flex justify-between">
-                          <span>{cls.duration}</span>
-                          <span>{cls.level}</span>
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent className="px-0 flex-grow">
-                        <p className="text-charcoal/80 mb-4">{cls.longDescription}</p>
-                      </CardContent>
-                      <CardFooter className="px-0 pt-4 flex justify-between">
-                        <Button
-                          variant="outline"
-                          className="rounded-none border-charcoal text-charcoal hover:bg-charcoal hover:text-white btn-3d"
-                          asChild
-                        >
-                          <Link href={`/classes/${cls.id}`}>Learn More</Link>
-                        </Button>
-                        <Button className="bg-charcoal text-white hover:bg-charcoal/90 rounded-none btn-3d" asChild>
-                          <Link href="/schedule">Book Class</Link>
-                        </Button>
-                      </CardFooter>
-                    </div>
-                  </div>
-                </Card>
+                  </Card>
+                </div>
               </IntersectionObserver>
             ))}
           </div>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e3e8f4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d3d8e4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="personGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b8b8b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6b6b6b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGradient)"/>
+  
+  <!-- Reformer Machine -->
+  <rect x="200" y="300" width="400" height="20" fill="#d4d4d4" rx="2"/>
+  <rect x="200" y="320" width="20" height="100" fill="#b4b4b4"/>
+  <rect x="580" y="320" width="20" height="100" fill="#b4b4b4"/>
+  
+  <!-- Person -->
+  <circle cx="400" cy="250" r="30" fill="url(#personGradient)"/>
+  <path d="M400 280 L400 380" stroke="url(#personGradient)" stroke-width="8"/>
+  <path d="M400 320 L350 370" stroke="url(#personGradient)" stroke-width="8"/>
+  <path d="M400 320 L450 370" stroke="url(#personGradient)" stroke-width="8"/>
+  <path d="M400 380 L370 450" stroke="url(#personGradient)" stroke-width="8"/>
+  <path d="M400 380 L430 450" stroke="url(#personGradient)" stroke-width="8"/>
+  
+  <!-- Instructor Silhouette -->
+  <circle cx="500" cy="250" r="25" fill="url(#personGradient)" opacity="0.7"/>
+  <path d="M500 275 L500 350" stroke="url(#personGradient)" stroke-width="6" opacity="0.7"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="150" cy="150" r="50" fill="#d3d8e4" opacity="0.5"/>
+  <circle cx="650" cy="450" r="50" fill="#d3d8e4" opacity="0.5"/>
+</svg> 

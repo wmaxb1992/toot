@@ -4,8 +4,6 @@ import { useEffect } from "react"
 import Hero from "@/components/hero"
 import AboutSection from "@/components/about-section"
 import ClassesSection from "@/components/classes-section"
-import PackagesSection from "@/components/packages-section"
-import TestimonialsSection from "@/components/testimonials-section"
 import CTASection from "@/components/cta-section"
 import { throttle } from "@/lib/utils"
 
@@ -51,8 +49,6 @@ export default function Home() {
       <Hero />
       <AboutSection />
       <ClassesSection />
-      <PackagesSection />
-      <TestimonialsSection />
       <CTASection />
     </div>
   )

@@ -210,7 +210,7 @@ export default function ContactPage() {
             </IntersectionObserver>
 
             <div className="space-y-6">
-              <IntersectionObserver className="stagger-card" delay={0.2}>
+              <IntersectionObserver className="stagger-card">
                 <Card className="border-none shadow-sm transform-gpu hover:shadow-md transition-all duration-300">
                   <CardHeader>
                     <CardTitle className="text-2xl font-light">
@@ -225,9 +225,9 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-medium">Address</h3>
                         <p className="text-charcoal/80">
-                          123 Movement Lane
+                          320 Richmond St
                           <br />
-                          San Francisco, CA 94110
+                          Amherstburg, ON N9V 1H4
                         </p>
                       </div>
                     </div>
@@ -236,7 +236,7 @@ export default function ContactPage() {
                       <Phone className="h-5 w-5 text-charcoal mr-3 mt-0.5" />
                       <div>
                         <h3 className="font-medium">Phone</h3>
-                        <p className="text-charcoal/80">(415) 555-1234</p>
+                        <p className="text-charcoal/80">(519) 551-4767</p>
                       </div>
                     </div>
 
@@ -244,7 +244,7 @@ export default function ContactPage() {
                       <Mail className="h-5 w-5 text-charcoal mr-3 mt-0.5" />
                       <div>
                         <h3 className="font-medium">Email</h3>
-                        <p className="text-charcoal/80">info@studioseven.com</p>
+                        <p className="text-charcoal/80">info@studiosevenboutique.com</p>
                       </div>
                     </div>
 
@@ -253,11 +253,13 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-medium">Hours</h3>
                         <p className="text-charcoal/80">
-                          Monday - Friday: 6:00 AM - 8:00 PM
+                          Monday - Friday: 7:00 AM - 10:00 AM
                           <br />
-                          Saturday: 8:00 AM - 4:00 PM
+                          5:30 PM - 7:30 PM
                           <br />
-                          Sunday: 9:00 AM - 2:00 PM
+                          Saturday: 9:00 AM - 12:00 PM
+                          <br />
+                          Sunday: Closed
                         </p>
                       </div>
                     </div>
@@ -265,7 +267,7 @@ export default function ContactPage() {
                 </Card>
               </IntersectionObserver>
 
-              <IntersectionObserver className="stagger-card" delay={0.4}>
+              <IntersectionObserver className="stagger-card">
                 <Card className="border-none shadow-sm transform-gpu hover:shadow-md transition-all duration-300">
                   <CardHeader>
                     <CardTitle className="text-2xl font-light">
@@ -275,15 +277,21 @@ export default function ContactPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="aspect-video bg-muted relative overflow-hidden">
-                      {/* In a real implementation, this would be a Google Maps embed */}
-                      <div className="absolute inset-0 flex items-center justify-center bg-cream transform-gpu transition-all duration-700 hover:scale-[1.02]">
-                        <p className="text-charcoal/70">Google Maps would be embedded here</p>
-                      </div>
+                    <div className="aspect-video bg-muted relative overflow-hidden rounded-full">
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.95373531531677!3d-37.81627977975195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d8b3c1b1a1e1!2s320%20Richmond%20St%2C%20Amherstburg%2C%20ON%20N9V%201H4%2C%20Canada!5e0!3m2!1sen!2sus!4v1614761234567!5m2!1sen!2sus"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                      ></iframe>
                     </div>
-                    <p className="mt-4 text-sm text-charcoal/80">
-                      We're conveniently located in the heart of the Mission District, with street parking available and
-                      just two blocks from public transportation.
+                    <p className="mt-4 text-lg text-charcoal/80">
+                      Located in the heart of Amherstburg
+                    </p>
+                    <p className="text-sm text-charcoal/60">
+                      Parking Lot available at the Studio
                     </p>
                   </CardContent>
                 </Card>
