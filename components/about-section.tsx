@@ -1,6 +1,4 @@
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
 import DataSplitting from "@/components/animations/data-splitting"
 import IntersectionObserver from "@/components/animations/intersection-observer"
 
@@ -22,13 +20,6 @@ export default function AboutSection() {
                 Experience the transformative difference, inside and out.
               </p>
             </div>
-            <Button
-              variant="outline"
-              className="rounded-full bg-charcoal text-white hover:bg-charcoal/90 btn-3d"
-              asChild
-            >
-              <Link href="/about">Learn More</Link>
-            </Button>
           </IntersectionObserver>
           <IntersectionObserver className="order-1 md:order-2 relative h-[400px] md:h-[500px] stagger-card">
             <div className="w-full h-full transform-gpu transition-all duration-1000 opacity-0 translate-y-4 group-animate-in:opacity-100 group-animate-in:translate-y-0 image-container">
