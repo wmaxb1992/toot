@@ -39,7 +39,7 @@ export default function Navbar() {
     if (isHomePage) {
       const timer = setTimeout(() => {
         setShowNavbar(true)
-      }, 3000)  // Show navbar after logo dissolves
+      }, 2500)  // Changed from 3000 to 2500ms to appear after logo dissolves
 
       return () => {
         clearTimeout(timer)

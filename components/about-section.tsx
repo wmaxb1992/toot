@@ -22,11 +22,6 @@ export default function AboutSection() {
                 Experience the transformative difference, inside and out.
               </p>
             </div>
-            <div className="overflow-hidden">
-              <DataSplitting type="words" delay={0.6} stagger={0.02} as="p" className="text-charcoal/80 mb-8 font-sans">
-                
-              </DataSplitting>
-            </div>
             <Button
               variant="outline"
               className="rounded-full bg-charcoal text-white hover:bg-charcoal/90 btn-3d"
@@ -36,9 +31,9 @@ export default function AboutSection() {
             </Button>
           </IntersectionObserver>
           <IntersectionObserver className="order-1 md:order-2 relative h-[400px] md:h-[500px] stagger-card">
-            <div className="w-full h-full transform-gpu transition-transform duration-700 hover:scale-[1.02]">
+            <div className="w-full h-full transform-gpu transition-all duration-1000 opacity-0 translate-y-4 group-animate-in:opacity-100 group-animate-in:translate-y-0 image-container">
               <Image
-                src="/reformer-guidance.png"
+                src="/images/dd1.jpeg"
                 alt="Studio Seven Pilates Instruction"
                 fill
                 className="object-cover"

@@ -17,7 +17,7 @@ export default function Hero() {
       // Show content after logo animation completes
       const timer = setTimeout(() => {
         setShowContent(true)
-      }, 3000)  // Match the logo dissolve timing
+      }, 2500)  // Match the navbar timing
 
       return () => clearTimeout(timer)
     } else {

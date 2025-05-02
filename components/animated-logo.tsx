@@ -14,7 +14,7 @@ export default function AnimatedLogo({ scrollProgress }: AnimatedLogoProps) {
     // Start the animation sequence
     const finalTimer = setTimeout(() => {
       setAnimationState('final')
-    }, 3000)
+    }, 2000)
 
     return () => {
       clearTimeout(finalTimer)

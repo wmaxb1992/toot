@@ -34,8 +34,8 @@ export default function AboutPage() {
             <div className="relative h-[400px]">
               <div className="w-full h-full overflow-hidden relative rounded-lg">
                 <Image 
-                  src="/images/dd2.jpg" 
-                  alt="Flower Detail" 
+                  src="/images/poop1.png"
+                  alt="Studio Seven About" 
                   fill 
                   className="object-cover"
                   priority
