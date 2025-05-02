@@ -6,11 +6,33 @@ import { Card, CardContent } from "@/components/ui/card"
 import DataSplitting from "@/components/animations/data-splitting"
 import IntersectionObserver from "@/components/animations/intersection-observer"
 
+// Add TypeScript declarations for the Mindbody widget
+declare global {
+  interface Window {
+    MBXWidget?: {
+      init: () => void;
+    };
+  }
+}
+
 export default function ScheduleWidgetSection() {
   const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
     setIsClient(true)
+    // Ensure the widget initializes when the script loads
+    const initWidget = () => {
+      if (window.MBXWidget) {
+        window.MBXWidget.init();
+      }
+    };
+
+    // Add event listener for script load
+    window.addEventListener('MBXWidgetReady', initWidget);
+
+    return () => {
+      window.removeEventListener('MBXWidgetReady', initWidget);
+    };
   }, [])
 
   return (
@@ -30,21 +52,16 @@ export default function ScheduleWidgetSection() {
         <IntersectionObserver className="stagger-card">
           <Card className="bg-white border-none shadow-lg">
             <CardContent className="p-8">
-              {isClient && (
-                <>
-                  <Script
-                    src="https://widgets.mindbodyonline.com/javascripts/healcode.js"
-                    strategy="afterInteractive"
-                  />
-                  <div 
-                    className="healcode-widget" 
-                    data-type="schedules"
-                    data-widget-partner="object"
-                    data-widget-id="2223636f680"
-                    data-widget-version="0"
-                  />
-                </>
-              )}
+              <div className="mindbody-widget" data-widget-type="Schedules" data-widget-id="2223636f680"></div>
+              <Script 
+                src="https://brandedweb.mindbodyonline.com/embed/widget.js"
+                strategy="afterInteractive"
+                onLoad={() => {
+                  if (window.MBXWidget) {
+                    window.MBXWidget.init();
+                  }
+                }}
+              />
             </CardContent>
           </Card>
         </IntersectionObserver>
