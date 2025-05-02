@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import DataSplitting from "@/components/animations/data-splitting"
 import IntersectionObserver from "@/components/animations/intersection-observer"
+import HealcodeWidget from "@/components/healcode-widget"
 
 // Add TypeScript declarations for the Mindbody widget
 declare global {
@@ -62,6 +63,9 @@ export default function ScheduleWidgetSection() {
                   }
                 }}
               />
+              <div className="mt-8">
+                <HealcodeWidget />
+              </div>
             </CardContent>
           </Card>
         </IntersectionObserver>

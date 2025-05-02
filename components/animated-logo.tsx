@@ -5,25 +5,13 @@ import Image from "next/image"
 
 interface AnimatedLogoProps {
   scrollProgress: number
+  dissolved?: boolean
 }
 
-export default function AnimatedLogo({ scrollProgress }: AnimatedLogoProps) {
-  const [animationState, setAnimationState] = useState<'initial' | 'final'>('initial')
-
-  useEffect(() => {
-    // Start the animation sequence
-    const finalTimer = setTimeout(() => {
-      setAnimationState('final')
-    }, 2000)
-
-    return () => {
-      clearTimeout(finalTimer)
-    }
-  }, [])
-
-  // Calculate opacity based on both animation state and scroll
+export default function AnimatedLogo({ scrollProgress, dissolved = false }: AnimatedLogoProps) {
+  // Calculate opacity based on dissolved prop and scroll
   const getOpacity = () => {
-    if (animationState === 'final') return 0
+    if (dissolved) return 0
     return Math.max(0, 1 - scrollProgress * 2)
   }
 

@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import AnimatedLogo from "./animated-logo"
 import { usePathname } from "next/navigation"
+import TypingText from "./animations/typing-text"
 
 export default function Hero() {
+  const [logoDissolved, setLogoDissolved] = useState(false)
   const [showContent, setShowContent] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
   const pathname = usePathname()
@@ -14,13 +16,15 @@ export default function Hero() {
 
   useEffect(() => {
     if (isHomePage) {
-      // Show content after logo animation completes
-      const timer = setTimeout(() => {
-        setShowContent(true)
-      }, 2500)  // Match the navbar timing
-
-      return () => clearTimeout(timer)
+      // Dissolve logo after 1.2s, then show content after 1.7s
+      const logoTimer = setTimeout(() => setLogoDissolved(true), 1200)
+      const contentTimer = setTimeout(() => setShowContent(true), 1700)
+      return () => {
+        clearTimeout(logoTimer)
+        clearTimeout(contentTimer)
+      }
     } else {
+      setLogoDissolved(true)
       setShowContent(true)
     }
   }, [isHomePage])
@@ -67,30 +71,27 @@ export default function Hero() {
         }}
       />
 
-      {isHomePage && <AnimatedLogo scrollProgress={scrollProgress} />}
+      {isHomePage && <AnimatedLogo scrollProgress={scrollProgress} dissolved={logoDissolved} />}
 
       <div 
-        className={`container-custom relative z-20 text-charcoal transition-all duration-[2000ms] ${
+        className={`container-custom relative z-20 text-white transition-all duration-[2000ms] ${
           showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}
       >
-        <div className="max-w-2xl mx-auto mt-32" style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}>
-          <h1 
-            className={`text-5xl md:text-7xl font-normal mb-8 tracking-wide text-center transition-all duration-[2000ms] ${
-              showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-            style={{ transitionDelay: '200ms', letterSpacing: '0.05em' }}
-          >
-            Move with intention
-          </h1>
-          <p 
-            className={`text-base md:text-lg mb-8 font-light opacity-90 max-w-lg overflow-hidden text-center mx-auto transition-all duration-[2000ms] ${
+        <div className="max-w-2xl mx-auto mt-40" style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}>
+          <div 
+            className={`text-base md:text-lg mb-8 font-medium opacity-90 max-w-lg overflow-hidden text-center mx-auto transition-all duration-[2000ms] ${
               showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
             style={{ transitionDelay: '400ms' }}
           >
-            Transform your body and mind through the power of controlled movement at Studio Seven.
-          </p>
+            {showContent && (
+              <TypingText 
+                text="Step into Studio Seven. Breathe deeper. Move better. Live well."
+                className="whitespace-pre-line"
+              />
+            )}
+          </div>
           <div className={`flex flex-col sm:flex-row gap-4 mt-12 justify-center transition-all duration-[2000ms] ${
             showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}

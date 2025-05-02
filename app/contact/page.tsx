@@ -53,29 +53,22 @@ export default function ContactPage() {
     }
   }, [])
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSuccess(true)
-      setFormState({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-        inquiry: "general",
-      })
-
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setIsSuccess(false)
-      }, 5000)
-    }, 1500)
-  }
+  const handleAjaxSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setIsSuccess(false);
+    const formData = new FormData(e.target as HTMLFormElement);
+    await fetch("https://formsubmit.co/ajax/info@studiosevenboutique.com", {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    setIsSubmitting(false);
+    setIsSuccess(true);
+    (e.target as HTMLFormElement).reset();
+  };
 
   return (
     <div className="pt-20 min-h-screen">
@@ -115,17 +108,18 @@ export default function ContactPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  {isSuccess ? (
+                  {isSuccess && (
                     <div className="bg-green-50 border border-green-200 text-green-800 p-4 mb-4">
                       Thank you for your message! We'll be in touch soon.
                     </div>
-                  ) : null}
+                  )}
 
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleAjaxSubmit} className="space-y-4">
                     <div className="grid gap-2">
                       <Label htmlFor="name">Name</Label>
                       <Input
                         id="name"
+                        name="name"
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                         required
@@ -137,6 +131,7 @@ export default function ContactPage() {
                       <Label htmlFor="email">Email</Label>
                       <Input
                         id="email"
+                        name="email"
                         type="email"
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
@@ -149,6 +144,7 @@ export default function ContactPage() {
                       <Label htmlFor="phone">Phone (optional)</Label>
                       <Input
                         id="phone"
+                        name="phone"
                         value={formState.phone}
                         onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
                         className="transform-gpu transition-all duration-300 focus:scale-[1.01]"
@@ -158,6 +154,7 @@ export default function ContactPage() {
                     <div className="grid gap-2">
                       <Label htmlFor="inquiry">Inquiry Type</Label>
                       <Select
+                        name="inquiry"
                         value={formState.inquiry}
                         onValueChange={(value) => setFormState({ ...formState, inquiry: value })}
                       >
@@ -178,6 +175,7 @@ export default function ContactPage() {
                       <Label htmlFor="subject">Subject</Label>
                       <Input
                         id="subject"
+                        name="subject"
                         value={formState.subject}
                         onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
                         required
@@ -189,6 +187,7 @@ export default function ContactPage() {
                       <Label htmlFor="message">Message</Label>
                       <Textarea
                         id="message"
+                        name="message"
                         rows={5}
                         value={formState.message}
                         onChange={(e) => setFormState({ ...formState, message: e.target.value })}
@@ -279,7 +278,7 @@ export default function ContactPage() {
                   <CardContent>
                     <div className="aspect-video bg-muted relative overflow-hidden rounded-full">
                       <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.95373531531677!3d-37.81627977975195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d8b3c1b1a1e1!2s320%20Richmond%20St%2C%20Amherstburg%2C%20ON%20N9V%201H4%2C%20Canada!5e0!3m2!1sen!2sus!4v1614761234567!5m2!1sen!2sus"
+                        src="https://www.google.com/maps?q=300+Victoria+St+S,+Amherstburg,+ON+N9V+1M9,+Canada&output=embed"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}

@@ -39,7 +39,7 @@ export default function Navbar() {
     if (isHomePage) {
       const timer = setTimeout(() => {
         setShowNavbar(true)
-      }, 2500)  // Changed from 3000 to 2500ms to appear after logo dissolves
+      }, 2500)  // Changed to 2500ms to match logo dissolve and fade
 
       return () => {
         clearTimeout(timer)
@@ -68,9 +68,11 @@ export default function Navbar() {
       )}
     >
       <div className="container-custom flex items-center justify-between h-20">
-        <Link
-          href="/"
-          className="transform-gpu transition-all duration-700 hover:scale-[1.02] flex items-center"
+        <button
+          type="button"
+          onClick={() => { window.location.href = "/"; }}
+          className="transform-gpu transition-all duration-700 hover:scale-[1.02] flex items-center bg-transparent border-none p-0 m-0"
+          style={{ background: 'none', border: 'none', padding: 0, margin: 0 }}
         >
           <Image
             src="/images/studio-seven-logo.png"
@@ -87,7 +89,7 @@ export default function Navbar() {
             priority
             quality={100}
           />
-        </Link>
+        </button>
 
         <div className="hidden md:flex items-center gap-8">
           <Link
@@ -117,7 +119,14 @@ export default function Navbar() {
             >
               Classes <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="bg-transparent backdrop-blur-sm border-none">
+            <DropdownMenuContent
+              align="start"
+              className={cn(
+                (isScrolled || !isHomePage)
+                  ? "bg-white border border-gray-200 shadow-lg"
+                  : "bg-transparent backdrop-blur-sm border-none"
+              )}
+            >
               <DropdownMenuItem className="uppercase text-sm text-charcoal hover:text-stone font-['PT_Sans']" asChild>
                 <Link href="/classes">All Classes</Link>
               </DropdownMenuItem>
