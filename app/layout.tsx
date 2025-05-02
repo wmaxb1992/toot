@@ -42,12 +42,6 @@ const ralewayDots = Raleway_Dots({
   display: "swap",
 })
 
-// Special Gothic Expanded One font for the logo
-const specialGothic = localFont({
-  src: "./fonts/SpecialGothicExpandedOne.woff2",
-  variable: "--font-special-gothic",
-})
-
 export const metadata: Metadata = {
   title: "Studio Seven | Modern Pilates Studio",
   description: "Join our Pilates classes and transform your body and mind at Studio Seven.",
@@ -67,7 +61,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`${raleway.variable} ${ralewayDots.variable} ${specialGothic.variable} ${ptSans.variable} ${montserrat.variable}`}>
+      <body className={`${raleway.variable} ${ralewayDots.variable} ${ptSans.variable} ${montserrat.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <div className="flex min-h-screen flex-col">
             <Navbar />

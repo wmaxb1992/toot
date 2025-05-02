@@ -3,7 +3,7 @@
 import { useEffect } from "react"
 import Hero from "@/components/hero"
 import AboutSection from "@/components/about-section"
-import ClassesSection from "@/components/classes-section"
+import ScheduleWidgetSection from "@/components/schedule-widget-section"
 import CTASection from "@/components/cta-section"
 import { throttle } from "@/lib/utils"
 
@@ -48,7 +48,7 @@ export default function Home() {
     <div className="flex flex-col">
       <Hero />
       <AboutSection />
-      <ClassesSection />
+      <ScheduleWidgetSection />
       <CTASection />
     </div>
   )

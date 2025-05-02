@@ -235,3 +235,73 @@
 .stagger-card > * {
   transition: all 0.5s ease-out;
 }
+
+/* MindBody Widget Styling */
+.healcode-widget *,
+.healcode-widget input,
+.healcode-widget select,
+.healcode-widget textarea,
+.healcode-widget button {
+  font-family: var(--font-montserrat), system-ui, sans-serif !important;
+}
+
+.healcode-widget h1,
+.healcode-widget h2,
+.healcode-widget h3,
+.healcode-widget h4,
+.healcode-widget h5,
+.healcode-widget h6 {
+  font-family: var(--font-raleway), system-ui, sans-serif !important;
+}
+
+.healcode-widget input[type="text"],
+.healcode-widget input[type="email"],
+.healcode-widget input[type="password"],
+.healcode-widget select,
+.healcode-widget textarea {
+  @apply rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/20;
+}
+
+.healcode-widget button {
+  @apply bg-primary text-white rounded-full px-6 py-2 hover:bg-primary/90 transition-colors;
+}
+
+/* Animation classes for DataSplitting component */
+.words-animation .word,
+.chars-animation .char,
+.lines-animation .line {
+  @apply opacity-0 translate-y-5 transition-all duration-500 ease-out;
+}
+
+.words-animation.animate .word,
+.chars-animation.animate .char,
+.lines-animation.animate .line {
+  @apply opacity-100 translate-y-0;
+}
+
+/* Animation classes for IntersectionObserver component */
+/* Note: .stagger-card > * rules already exist, ensure no conflict or merge if needed */
+/* The reference project had these extra nth-child delays */
+.stagger-card.animate > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-card.animate > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger-card.animate > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger-card.animate > *:nth-child(4) { transition-delay: 0.4s; }
+.stagger-card.animate > *:nth-child(5) { transition-delay: 0.5s; }
+
+/* 3D hover effect for buttons */
+/* Note: .btn-3d rules exist in animations.css, ensure no conflict or merge if needed */
+.btn-3d {
+  @apply transition-transform duration-300 ease-out;
+  transform-style: preserve-3d;
+}
+
+.btn-3d:hover {
+  transform: translate3d(0, -5px, 10px);
+}
+
+/* Parallax effect for background elements */
+/* Note: .parallax rules exist in animations.css, ensure no conflict or merge if needed */
+.parallax {
+  @apply transition-transform duration-500 ease-out;
+  transform-style: preserve-3d;
+}

@@ -43,7 +43,7 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h1 className="text-4xl font-light mb-4 section-title">
               <DataSplitting type="words" delay={0.2} stagger={0.1}>
-                About Us?
+                About Us
               </DataSplitting>
             </h1>
           </div>
@@ -72,10 +72,10 @@ export default function AboutPage() {
               </div>
             </IntersectionObserver>
             <IntersectionObserver className="relative h-[400px] stagger-card">
-              <div className="w-full h-full transform-gpu transition-transform duration-700 hover:scale-[1.02] overflow-hidden relative rounded-full">
+              <div className="w-full h-full transform-gpu transition-transform duration-700 hover:scale-[1.02] overflow-hidden relative rounded-lg">
                 <Image 
-                  src="/sunlit-pilates-sanctuary.png" 
-                  alt="Studio Seven Interior" 
+                  src="/images/dd2.jpg" 
+                  alt="Flower Detail" 
                   fill 
                   className="object-cover"
                   priority
@@ -95,7 +95,7 @@ export default function AboutPage() {
 
             <div className="grid md:grid-cols-2 gap-6">
               <IntersectionObserver className="stagger-card">
-                <Card className="border-none shadow-sm transform-gpu hover:shadow-md transition-all duration-300">
+                <Card className="bg-cream border-none shadow-sm transform-gpu hover:shadow-md transition-all duration-300">
                   <CardContent className="pt-6">
                     <h3 className="text-xl font-medium mb-3">Strength</h3>
                     <p className="text-charcoal/80 text-sm">
@@ -106,7 +106,7 @@ export default function AboutPage() {
               </IntersectionObserver>
 
               <IntersectionObserver className="stagger-card">
-                <Card className="border-none shadow-sm transform-gpu hover:shadow-md transition-all duration-300">
+                <Card className="bg-cream border-none shadow-sm transform-gpu hover:shadow-md transition-all duration-300">
                   <CardContent className="pt-6">
                     <h3 className="text-xl font-medium mb-3">Endurance</h3>
                     <p className="text-charcoal/80 text-sm">
@@ -117,7 +117,7 @@ export default function AboutPage() {
               </IntersectionObserver>
 
               <IntersectionObserver className="stagger-card">
-                <Card className="border-none shadow-sm transform-gpu hover:shadow-md transition-all duration-300">
+                <Card className="bg-cream border-none shadow-sm transform-gpu hover:shadow-md transition-all duration-300">
                   <CardContent className="pt-6">
                     <h3 className="text-xl font-medium mb-3">Flexibility</h3>
                     <p className="text-charcoal/80 text-sm">
@@ -128,7 +128,7 @@ export default function AboutPage() {
               </IntersectionObserver>
 
               <IntersectionObserver className="stagger-card">
-                <Card className="border-none shadow-sm transform-gpu hover:shadow-md transition-all duration-300">
+                <Card className="bg-cream border-none shadow-sm transform-gpu hover:shadow-md transition-all duration-300">
                   <CardContent className="pt-6">
                     <h3 className="text-xl font-medium mb-3">Body Alignment</h3>
                     <p className="text-charcoal/80 text-sm">

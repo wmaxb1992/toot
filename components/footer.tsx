@@ -138,9 +138,9 @@ export default function Footer() {
               <li className="flex items-start transform-gpu transition-all duration-300 hover:translate-x-1">
                 <MapPin size={18} className="mr-2 text-charcoal/80 shrink-0 mt-0.5" />
                 <span className="text-charcoal/80">
-                  320 Richmond St
+                  300 Victoria St S
                   <br />
-                  Amherstburg, ON N9V 1H4
+                  Amherstburg ON N9V 1M9
                 </span>
               </li>
               <li className="flex items-center transform-gpu transition-all duration-300 hover:translate-x-1">
