@@ -1,93 +1,27 @@
 "use client"
 
 import { useEffect } from "react"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Check } from "lucide-react"
 import Link from "next/link"
 import DataSplitting from "@/components/animations/data-splitting"
 import IntersectionObserver from "@/components/animations/intersection-observer"
 import { throttle } from "@/lib/utils"
 
-const packages = [
-  {
-    title: "Single Class",
-    price: "$35",
-    description: "Perfect for first-time visitors or occasional drop-ins.",
-    features: ["Access to any class format", "Equipment provided", "Valid for 30 days", "No commitment"],
-    popular: false,
-    link: "/pricing/single",
-  },
-  {
-    title: "Class Pack (5)",
-    price: "$160",
-    description: "Our most popular option for regular practitioners.",
-    features: [
-      "5 classes ($32 per class)",
-      "Access to all class formats",
-      "Valid for 60 days",
-      "Discounted rate per class",
-    ],
-    popular: true,
-    link: "/pricing/pack-5",
-  },
-  {
-    title: "Class Pack (10)",
-    price: "$290",
-    description: "Great value for frequent visitors.",
-    features: ["10 classes ($29 per class)", "Access to all class formats", "Valid for 90 days", "Significant savings"],
-    popular: false,
-    link: "/pricing/pack-10",
-  },
-  {
-    title: "Monthly Unlimited",
-    price: "$250",
-    description: "Best value for dedicated Pilates enthusiasts.",
-    features: ["Unlimited classes", "Priority booking", "One complimentary guest pass", "Monthly auto-renewal"],
-    popular: false,
-    link: "/pricing/unlimited",
-  },
-  {
-    title: "Annual Membership",
-    price: "$2,400",
-    description: "Our premium option with maximum benefits.",
-    features: [
-      "Unlimited classes",
-      "Priority booking",
-      "Four complimentary guest passes",
-      "Two private sessions included",
-      "10% off retail items",
-    ],
-    popular: false,
-    link: "/pricing/annual",
-  },
-  {
-    title: "Private Session",
-    price: "$95",
-    description: "One-on-one instruction tailored to your needs.",
-    features: [
-      "55-minute personalized session",
-      "Customized program",
-      "All equipment provided",
-      "Available for all skill levels",
-    ],
-    popular: false,
-    link: "/pricing/private",
-  },
-]
-
 export default function PricingPage() {
   useEffect(() => {
     // Initialize animations for elements already in view
     const handleScroll = throttle(() => {
-      document.querySelectorAll(".stagger-card:not(.animate)").forEach((element) => {
-        const rect = element.getBoundingClientRect()
-        const windowHeight = window.innerHeight
+      document
+        .querySelectorAll(".stagger-card:not(.animate)")
+        .forEach((element) => {
+          const rect = element.getBoundingClientRect()
+          const windowHeight = window.innerHeight
 
-        if (rect.top < windowHeight * 0.9 && rect.bottom > 0) {
-          element.classList.add("animate")
-        }
-      })
+          if (rect.top < windowHeight * 0.9 && rect.bottom > 0) {
+            element.classList.add("animate")
+          }
+        })
     }, 100)
 
     // Add scroll event listener
@@ -104,101 +38,193 @@ export default function PricingPage() {
   }, [])
 
   return (
-    <div className="pt-20 min-h-screen">
-      <div className="container-custom py-12">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-light mb-4 section-title">
-              <DataSplitting type="words" delay={0.2} stagger={0.1}>
-                Pricing & Packages
-              </DataSplitting>
-            </h1>
-            <div className="overflow-hidden">
-              <DataSplitting
-                type="words"
-                delay={0.5}
-                stagger={0.03}
-                as="p"
-                className="text-charcoal/80 max-w-2xl mx-auto"
-              >
-                Choose the package that fits your schedule and commitment level. All packages give you access to our
-                state-of-the-art studio and expert instruction.
-              </DataSplitting>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {packages.map((pkg, index) => (
-              <IntersectionObserver
-                key={index}
-                className="stagger-card"
-                threshold={0.1}
-                rootMargin="0px 0px -50px 0px"
-                triggerOnce={true}
-              >
-                <Card
-                  className={`border-none relative transform-gpu transition-all duration-500 ${
-                    pkg.popular ? "shadow-lg" : "shadow-sm"
-                  }`}
-                >
-                  {pkg.popular && (
-                    <div className="absolute top-0 right-0 bg-charcoal text-white text-xs px-3 py-1">Most Popular</div>
-                  )}
-                  <CardHeader>
-                    <CardTitle className="text-xl font-medium">{pkg.title}</CardTitle>
-                    <CardDescription>
-                      <span className="text-2xl font-dots">{pkg.price}</span>
-                    </CardDescription>
+    <div className="pt-20 min-h-screen bg-cream">
+      <div className="container-custom py-8 md:py-12">
+        <div className="max-w-4xl mx-auto">
+          {/* New to Our Studio? Section */}
+          <IntersectionObserver className="mb-8 md:mb-10 stagger-card">
+            <div>
+              <h2 className="text-xl md:text-2xl font-light mb-4 text-center section-title">
+                <DataSplitting type="words" delay={0.2} stagger={0.1}>
+                  New to Our Studio?
+                </DataSplitting>
+              </h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up">
+                  <CardHeader className="p-4">
+                    <CardTitle className="text-lg font-medium">
+                      Intro Offer
+                    </CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-charcoal/80 mb-4">{pkg.description}</p>
-                    <ul className="space-y-2">
-                      {pkg.features.map((feature, i) => (
-                        <li key={i} className="flex items-start">
-                          <Check className="h-5 w-5 text-charcoal mr-2 shrink-0" />
-                          <span className="text-sm">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                  <CardFooter>
+                  <CardContent className="text-center p-4">
+                    <p className="text-charcoal mb-2 text-sm">
+                      3 x classes. New Clients only.
+                    </p>
+                    <p className="text-xs text-charcoal mb-2">
+                      Expires 7 days after first booking
+                    </p>
+                    <p className="text-xl font-dots font-bold mb-2">$60</p>
                     <Button
-                      className={`w-full rounded-none btn-3d ${
-                        pkg.popular
-                          ? "bg-charcoal text-white hover:bg-charcoal/90"
-                          : "bg-white border border-charcoal text-charcoal hover:bg-charcoal hover:text-white"
-                      }`}
+                      className="w-full rounded-[200px] btn-3d bg-charcoal text-white hover:bg-charcoal/90 px-8 py-2 transition-transform hover:scale-105 text-sm"
                       asChild
                     >
-                      <Link href={pkg.link}>Purchase Package</Link>
+                      <Link href="/schedule">Book Offer</Link>
                     </Button>
-                  </CardFooter>
+                  </CardContent>
                 </Card>
-              </IntersectionObserver>
-            ))}
-          </div>
-
-          <IntersectionObserver className="mt-16 bg-cream p-8 text-center stagger-card">
-            <h2 className="text-2xl font-light mb-4 section-title">
-              <DataSplitting type="words" delay={0.2} stagger={0.1}>
-                Need Help Choosing?
-              </DataSplitting>
-            </h2>
-            <div className="overflow-hidden">
-              <DataSplitting
-                type="words"
-                delay={0.4}
-                stagger={0.03}
-                as="p"
-                className="text-charcoal/80 max-w-2xl mx-auto mb-6"
-              >
-                Not sure which package is right for you? Contact us for personalized recommendations or to discuss
-                corporate packages and special group rates.
-              </DataSplitting>
+                <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up">
+                  <CardHeader className="p-4">
+                    <CardTitle className="text-lg font-medium">
+                      Single Reformer Drop In
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center p-4">
+                    <p className="text-charcoal mb-2 text-sm">
+                      1 x single reformer class.
+                    </p>
+                    <p className="text-xs text-charcoal mb-2">
+                      Expires 12 months from purchase
+                    </p>
+                    <p className="text-xl font-dots font-bold mb-2">$30</p>
+                    <Button
+                      className="w-full rounded-[200px] btn-3d bg-charcoal text-white hover:bg-charcoal/90 px-8 py-2 transition-transform hover:scale-105 text-sm"
+                      asChild
+                    >
+                      <Link href="/schedule">Book Class</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
-            <Button className="bg-charcoal text-white hover:bg-charcoal/90 rounded-none btn-3d" asChild>
-              <Link href="/contact">Contact Us</Link>
-            </Button>
+          </IntersectionObserver>
+
+          {/* Class Packs Section */}
+          <IntersectionObserver className="mb-8 md:mb-10 stagger-card">
+            <div>
+              <h2 className="text-xl md:text-2xl font-light mb-4 text-center section-title">
+                <DataSplitting type="words" delay={0.2} stagger={0.1}>
+                  Class Packs
+                </DataSplitting>
+              </h2>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {/* 5 Class Pack */}
+                <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up">
+                  <CardHeader className="p-4">
+                    <CardTitle className="text-lg font-medium">
+                      5 Class Pack
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center p-4">
+                    <p className="text-xl font-dots font-bold mb-2">$125</p>
+                    <Button
+                      className="w-full rounded-[200px] btn-3d bg-charcoal text-white hover:bg-charcoal/90 px-8 py-2 transition-transform hover:scale-105 text-sm"
+                      asChild
+                    >
+                      <Link href="/schedule">Buy Now</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+                {/* 10 Class Pack */}
+                <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up">
+                  <CardHeader className="p-4">
+                    <CardTitle className="text-lg font-medium">
+                      10 Class Pack
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center p-4">
+                    <p className="text-xl font-dots font-bold mb-2">$250</p>
+                    <Button
+                      className="w-full rounded-[200px] btn-3d bg-charcoal text-white hover:bg-charcoal/90 px-8 py-2 transition-transform hover:scale-105 text-sm"
+                      asChild
+                    >
+                      <Link href="/schedule">Buy Now</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+                {/* 20 Class Pack */}
+                <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up">
+                  <CardHeader className="p-4">
+                    <CardTitle className="text-lg font-medium">
+                      20 Class Pack
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center p-4">
+                    <p className="text-xl font-dots font-bold mb-2">$400</p>
+                    <Button
+                      className="w-full rounded-[200px] btn-3d bg-charcoal text-white hover:bg-charcoal/90 px-8 py-2 transition-transform hover:scale-105 text-sm"
+                      asChild
+                    >
+                      <Link href="/schedule">Buy Now</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+                {/* 40 Class Pack */}
+                <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up">
+                  <CardHeader className="p-4">
+                    <CardTitle className="text-lg font-medium">
+                      40 Class Pack
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center p-4">
+                    <p className="text-xl font-dots font-bold mb-2">$800</p>
+                    <Button
+                      className="w-full rounded-[200px] btn-3d bg-charcoal text-white hover:bg-charcoal/90 px-8 py-2 transition-transform hover:scale-105 text-sm"
+                      asChild
+                    >
+                      <Link href="/schedule">Buy Now</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+              <p className="text-center text-xs text-stone/70 mt-4">
+                All packs valid for 12 months from date of purchase.
+              </p>
+            </div>
+          </IntersectionObserver>
+
+          {/* Private Sessions Section */}
+          <IntersectionObserver className="stagger-card">
+            <div>
+              <h2 className="text-xl md:text-2xl font-light mb-4 text-center section-title">
+                <DataSplitting type="words" delay={0.2} stagger={0.1}>
+                  Private Sessions
+                </DataSplitting>
+              </h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up">
+                  <CardHeader className="p-4">
+                    <CardTitle className="text-lg font-medium">
+                      1:1 Private Reformer Session
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center p-4">
+                    <p className="text-xl font-dots font-bold mb-2">$100</p>
+                    <Button
+                      className="w-full rounded-[200px] btn-3d bg-charcoal text-white hover:bg-charcoal/90 px-8 py-2 transition-transform hover:scale-105 text-sm"
+                      asChild
+                    >
+                      <Link href="/contact">Book Private</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+                <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up">
+                  <CardHeader className="p-4">
+                    <CardTitle className="text-lg font-medium">
+                      Duo Private Reformer Session
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center p-4">
+                    <p className="text-xl font-dots font-bold mb-2">$80</p>
+                    <Button
+                      className="w-full rounded-[200px] btn-3d bg-charcoal text-white hover:bg-charcoal/90 px-8 py-2 transition-transform hover:scale-105 text-sm"
+                      asChild
+                    >
+                      <Link href="/contact">Book Duo</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </IntersectionObserver>
         </div>
       </div>

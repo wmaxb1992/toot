@@ -34,22 +34,6 @@ const classes = [
     level: "Level 3",
     imageSrc: "/images/sweaty.png",
   },
-  {
-    id: "private-session",
-    title: "1:1 PRIVATE REFORMER SESSION",
-    description: "A Pilates experience designed entirely for you. With gentle guidance and focused support, you'll move through a session tailored to your unique goals. It's your time to reconnect with your body, deepen your practice, and feel truly supported every step of the way.",
-    duration: "60 min",
-    level: "All Levels",
-    imageSrc: "/images/placeholder-4.svg",
-  },
-  {
-    id: "duo-private-session",
-    title: "DUO PRIVATE REFORMER SESSION",
-    description: "A personalised Pilates experience for two, perfect for friends. With individualised guidance each session is thoughtfully tailored to meet both of your needs. You'll enjoy a balanced, full-body workout that focuses on building strength, improving flexibility, and deepening your connection to movement, together.",
-    duration: "60 min",
-    level: "All Levels",
-    imageSrc: "/images/placeholder-5.svg",
-  },
 ]
 
 export default function ClassesPage() {
@@ -102,7 +86,7 @@ export default function ClassesPage() {
             </div>
           </div>
 
-          <div className="space-y-12">
+          <div className="space-y-8">
             {classes.map((cls, index) => (
               <IntersectionObserver
                 key={index}
@@ -113,9 +97,9 @@ export default function ClassesPage() {
               >
                 <div className="p-8">
                   <Card 
-                    className="overflow-hidden transition-all duration-500 rounded-[62px]"
+                    className="overflow-hidden transition-all duration-500 rounded-[62px] border-none"
                   >
-                    <div className="grid md:grid-cols-2 gap-6 h-full">
+                    <div className="grid md:grid-cols-2 gap-4 h-full">
                       <div className="relative h-[240px] md:h-auto overflow-hidden">
                         <div className="w-full h-full transform-gpu transition-transform duration-700 hover:scale-[1.05] p-6">
                           <Image

@@ -225,9 +225,9 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-medium">Address</h3>
                         <p className="text-charcoal/80">
-                          320 Richmond St
+                          300 Victoria St S
                           <br />
-                          Amherstburg, ON N9V 1H4
+                          Amherstburg, ON N9V 1M9
                         </p>
                       </div>
                     </div>

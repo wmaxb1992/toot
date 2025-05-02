@@ -188,13 +188,6 @@ export default function Navbar() {
               Classes
             </Link>
             <Link
-              href="/classes/private"
-              className="text-sm uppercase tracking-wider py-2 text-stone/80 hover:text-stone transition-colors pl-4"
-              onClick={() => setIsOpen(false)}
-            >
-              Private Classes
-            </Link>
-            <Link
               href="/pricing"
               className="text-sm uppercase tracking-wider py-2 text-stone/80 hover:text-stone transition-colors pl-4"
               onClick={() => setIsOpen(false)}

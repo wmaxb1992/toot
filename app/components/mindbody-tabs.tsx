@@ -65,24 +65,24 @@ export default function MindbodyTabs() {
       <div className="flex justify-between mb-4">
         <div className="flex">
           <button
-            className={`px-6 py-3 font-medium text-sm rounded-t-lg ${
-              activeTab === "group-classes" ? "bg-white text-primary" : "bg-gray-100 text-gray-500 hover:text-gray-700"
+            className={`px-6 py-2 font-medium text-sm rounded-t-lg ${
+              activeTab === "group-classes" ? "bg-white text-black" : "bg-gray-100 text-gray-500 hover:text-gray-700"
             }`}
             onClick={() => handleTabChange("group-classes")}
           >
             Group Classes
           </button>
           <button
-            className={`px-6 py-3 font-medium text-sm rounded-t-lg ${
-              activeTab === "private" ? "bg-white text-primary" : "bg-gray-100 text-gray-500 hover:text-gray-700"
+            className={`px-6 py-2 font-medium text-sm rounded-t-lg ${
+              activeTab === "private" ? "bg-white text-black" : "bg-gray-100 text-gray-500 hover:text-gray-700"
             }`}
             onClick={() => handleTabChange("private")}
           >
             Private
           </button>
           <button
-            className={`px-6 py-3 font-medium text-sm rounded-t-lg ${
-              activeTab === "my-schedule" ? "bg-white text-primary" : "bg-gray-100 text-gray-500 hover:text-gray-700"
+            className={`px-6 py-2 font-medium text-sm rounded-t-lg ${
+              activeTab === "my-schedule" ? "bg-white text-black" : "bg-gray-100 text-gray-500 hover:text-gray-700"
             }`}
             onClick={() => handleTabChange("my-schedule")}
           >
@@ -91,7 +91,7 @@ export default function MindbodyTabs() {
         </div>
         <div className="flex space-x-4">
           <button
-            className={`px-4 py-2 font-medium text-sm ${
+            className={`px-4 py-1.5 font-medium text-sm ${
               activeTab === "registrations" ? "bg-black text-white" : "bg-black text-white opacity-80 hover:opacity-100"
             }`}
             onClick={() => handleTabChange("registrations")}
@@ -99,7 +99,7 @@ export default function MindbodyTabs() {
             Register
           </button>
           <button
-            className={`px-4 py-2 font-medium text-sm ${
+            className={`px-4 py-1.5 font-medium text-sm ${
               activeTab === "sign-in" ? "bg-black text-white" : "bg-black text-white opacity-80 hover:opacity-100"
             }`}
             onClick={() => handleTabChange("sign-in")}
