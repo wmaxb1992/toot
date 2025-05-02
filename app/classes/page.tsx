@@ -16,7 +16,7 @@ const classes = [
     description: "A thoughtfully designed reformer Pilates class that brings together gentle strength and mindful movement. This full-body experience encourages you to move with intention, lengthening, strengthening, with a focus on proper alignment. The perfect introduction to Pilates.",
     duration: "45 min",
     level: "Level 1",
-    imageSrc: "/images/powerflow.png",
+    imageSrc: "/images/p1.png",
   },
   {
     id: "sculpt-and-tone",
@@ -24,7 +24,7 @@ const classes = [
     description: "A strength-focused Pilates class designed to tone, tighten, and strengthen the body through mindful, controlled movement. This full-body session blends dynamic sequences with targeted resistance work to help build muscle endurance, improve core stability, and enhance overall definition.",
     duration: "45 min",
     level: "Level 2",
-    imageSrc: "/images/sculptandtone.png",
+    imageSrc: "/images/p2.png",
   },
   {
     id: "the-burn",
@@ -32,7 +32,7 @@ const classes = [
     description: "This class lives up to its name, a high-intensity reformer Pilates class designed to ignite your muscles and elevate your heart rate. With the jump board adding a cardio boost, this class blends low-impact bursts with powerful, muscle-toning sequences for the ultimate full-body challenge. Prepare to sweat, sculpt, and feel the burn from start to finish.",
     duration: "45 min",
     level: "Level 3",
-    imageSrc: "/images/sweaty.png",
+    imageSrc: "/images/p3.png",
   },
 ]
 
@@ -100,13 +100,13 @@ export default function ClassesPage() {
                     className="overflow-hidden transition-all duration-500 rounded-[62px] border-none"
                   >
                     <div className="grid md:grid-cols-2 gap-4 h-full">
-                      <div className="relative h-[240px] md:h-auto overflow-hidden">
-                        <div className="w-full h-full transform-gpu transition-transform duration-700 hover:scale-[1.05] p-6">
+                      <div className="relative h-[400px] md:h-[500px] overflow-hidden">
+                        <div className="w-full h-full transform-gpu transition-transform duration-700 hover:scale-[1.05]">
                           <Image
                             src={cls.imageSrc}
                             alt={`${cls.title} - Vector illustration`}
                             fill
-                            className={`object-contain ${cls.id === 'the-burn' ? 'mix-blend-multiply' : ''}`}
+                            className="object-cover"
                             priority={index < 2}
                           />
                         </div>
