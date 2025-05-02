@@ -6,7 +6,7 @@ import IntersectionObserver from "@/components/animations/intersection-observer"
 
 export default function AboutSection() {
   return (
-    <section className="py-20 bg-cream">
+    <section className="py-20 bg-white">
       <div className="container-custom">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <IntersectionObserver className="order-2 md:order-1 stagger-card">
