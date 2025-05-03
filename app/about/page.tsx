@@ -32,7 +32,7 @@ export default function AboutPage() {
               <div className="relative h-[400px] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                 <div className="w-full h-full overflow-hidden relative rounded-lg bg-white flex items-center justify-center p-4 animate-fade-in-up">
                   <Image 
-                    src="/images/pp3.png"
+                    src="/images/ttyl.png"
                     alt="Studio Seven About" 
                     fill 
                     className="object-contain"
