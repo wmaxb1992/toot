@@ -43,7 +43,7 @@ export default function AboutSection() {
             <div className="animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
               <div className="relative rounded-2xl shadow-lg bg-white overflow-hidden aspect-[1262/1866] w-3/4 mx-auto">
                 <Image
-                  src="/images/ttyl.png"
+                  src="/images/dd8.png"
                   alt="Studio Seven Pilates Instruction"
                   fill
                   className="object-contain"
