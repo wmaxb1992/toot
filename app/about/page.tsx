@@ -28,27 +28,7 @@ export default function AboutPage() {
                 Located in Amherstburg, ON, Studio Seven is more than a studio, it's a community where you're encouraged to move with purpose, grow with confidence, and feel truly at home.
               </p>
             </IntersectionObserver>
-            <IntersectionObserver className="stagger-card">
-              <div className="relative h-[400px] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                <div className="w-full h-full overflow-hidden relative rounded-lg bg-white flex items-center justify-center p-4 animate-fade-in-up">
-                  <Image 
-                    src="/images/ttyl.png"
-                    alt="Studio Seven About" 
-                    fill 
-                    className="object-contain"
-                    priority
-                  />
-                  {/* Radial edge blend */}
-                  <div className="pointer-events-none absolute inset-0 rounded-lg" style={{
-                    background: 'radial-gradient(circle at center, transparent 60%, white 100%)',
-                  }} />
-                  {/* Bottom fade to transparency */}
-                  <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-1/3 rounded-b-lg" style={{
-                    background: 'linear-gradient(to bottom, transparent 0%, white 100%)'
-                  }} />
-                </div>
-              </div>
-            </IntersectionObserver>
+           
           </div>
 
           <div className="mb-16">
