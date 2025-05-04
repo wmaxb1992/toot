@@ -15,7 +15,7 @@ export default function AboutPage() {
             <h1 className="text-4xl font-light mb-4 animate-fade-in-up">About Us</h1>
           </IntersectionObserver>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+          <div className="grid md:grid-cols-1 gap-12 items-center mb-16">
             <IntersectionObserver className="stagger-card">
               <h2 className="text-3xl font-light mb-6 animate-fade-in-up">Our Story</h2>
               <p className="text-sm text-charcoal/80 mb-4 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
