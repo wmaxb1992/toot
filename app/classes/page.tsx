@@ -12,7 +12,7 @@ import { throttle } from "@/lib/utils"
 const classes = [
   {
     id: "power-flow",
-    title: "POWER FLOW",
+    title: "FOUNDATION",
     description: "A thoughtfully designed reformer Pilates class that brings together gentle strength and mindful movement. This full-body experience encourages you to move with intention, lengthening, strengthening, with a focus on proper alignment. The perfect introduction to Pilates.",
     duration: "45 min",
     level: " 1",
